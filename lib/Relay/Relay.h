@@ -12,8 +12,8 @@ public:
   explicit Relay(int pin);
 
   void begin();
-  void toggle();
   void setState(bool state);
+  bool getState() const;
 private:
   uint32_t _pin;
   bool _state;
