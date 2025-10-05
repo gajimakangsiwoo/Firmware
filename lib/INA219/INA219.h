@@ -20,6 +20,7 @@ public:
   float getPower()        const;
 
   String toString() const;
+  String toCSV() const;
 
 private:
   Adafruit_INA219 ina219;

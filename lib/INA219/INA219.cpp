@@ -28,9 +28,16 @@ float INA219::getCurrent() const { return current_mA; }
 float INA219::getPower() const { return power_mW; }
 
 String INA219::toString() const {
-  return String("Bus: "   + String(busVoltage)   + " V, "
-                + "Shunt: " + String(shuntVoltage) + " mV, "
-                + "Current: " + String(current_mA) + " mA, "
-                + "Power: "   + String(power_mW)   + " mW");
+  return  "Bus: "   + String(busVoltage)   + " V, "
+             + "Shunt: " + String(shuntVoltage) + " mV, "
+             + "Current: " + String(current_mA) + " mA, "
+             + "Power: "   + String(power_mW)   + " mW";
+}
+
+String INA219::toCSV() const {
+  return String(busVoltage) + "," +
+            String(shuntVoltage) + "," +
+            String(current_mA) + "," +
+            String(power_mW);
 }
 
