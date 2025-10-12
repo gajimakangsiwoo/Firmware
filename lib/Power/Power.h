@@ -1,22 +1,27 @@
 //
-// Created by bitbyte08 on 25. 10. 12..
+// Created by bitbyte08 on 25. 10. 12.
 //
 
 #ifndef STM32F103_POWER_H
 #define STM32F103_POWER_H
 
+#include <Arduino.h>
 
 class Power {
 public:
-  explicit Power(int pin);
+  explicit Power(int pin, float shuntResistance);
 
   void begin();
+  float readVoltage();
+  float readCurrent();
+  float readPower();
+
 private:
   int _pin;
-  float shunt_R = 0;
-  float shunt_V = 0;
-  float shunt_W = 0;
+  float _shuntR;
+  float _vShunt;
+  float _iShunt;
+  float _pShunt;
 };
 
-
-#endif //STM32F103_POWER_H
+#endif // STM32F103_POWER_H
